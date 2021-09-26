@@ -14,7 +14,7 @@ body{
   display: flex;
 }
 .main-container {
-  background-color: green;
+  background-color: #eee;
   color: white;
   height: 65vh;
   width: 25vw;
@@ -23,14 +23,23 @@ body{
   box-shadow: 0 0 10px 7px #ff1818;
   overflow: hidden;
 }
-header.wrapper {
-  background-color:  white;
+.wrapper {
+  display: flex;
+  background-color:  #eee;
+
 }
 
 header.wrapper h2{
+font-family: Orbitron;
+flex-grow: 1;
 color: black;
-padding: 2rem 0 0 1rem;
-font-size: 1.4rem;
+font-size: 2rem;
+padding: 0.5rem 0 0 1rem;
+}
+button {
+background-color: transparent;
+font-size: 2em;
+padding: 0.5rem 1rem 0 ;
 }
 .clock-container{
   padding: 40px 0 0 0;
@@ -59,7 +68,7 @@ font-size: 1.4rem;
 font-family: Orbitron;
 font-size: 1.5rem;
 color: LightPink;
-font-weight: bold;
+font-weight: bolder;
 }
 @keyframes anim {
 	0%,
