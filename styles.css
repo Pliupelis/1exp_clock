@@ -43,7 +43,7 @@ font-size: 2em;
 padding: 0.5rem 1rem 0 ;
 }
 .clock-container{
-  padding: 40px 0 0 0;
+  padding: 2rem 0 0 0;
 }
 .clock {
   display: flex;
@@ -78,7 +78,7 @@ position: relative;
 .container{
   position: absolute;
   text-align: center;
-
+top:1rem;
 }
 .container .box{
   width: 120px;
