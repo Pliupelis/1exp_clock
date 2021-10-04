@@ -1,15 +1,21 @@
 
 document.addEventListener("DOMContentLoaded", function(event){
 let zeroTime = 0;
+
 setInterval( ()=>{
 const d = new Date();
 const display = document.getElementById('time');
-const container = document.getElementById('box');
 const time = d.toLocaleTimeString('en-IT', { hour12: false });
 display.innerHTML = time;
 
 
 },1000);
+
+const container = document.getElementById("btn-wrap");
+container.addEventListener("click", event => {
+  console.log( event.target.id); 
+
+});
 
 
 });
