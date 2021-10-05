@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 const display = document.getElementById('time');
 const container = document.getElementById("btn-wrap");
 var zeroTime = 0;
+var myInt;
+var yourInt;
+container.addEventListener("click", event => {
+isPaused = false;
+if(event.target.id == "box1"){
   timer = () =>{
   ++zeroTime;
            var hour = Math.floor(zeroTime /3600);
@@ -15,17 +20,16 @@ var zeroTime = 0;
              seconds = "0"+seconds;
            display.innerHTML = hour +
            ":" + minute + ":" + seconds;
+console.log(minute);
 };
-var myInt = setInterval(timer, 1000);
-container.addEventListener("click", event => {
-
-if(event.target.id == "box1" ){
-
-setInterval(timer, 1000);
+//myInt = setInterval(timer, 1000);
+clearInterval(yourInt);
+myInt = setInterval(timer, 1000);
 }
 
 if(event.target.id == "box2" ){
 clearInterval(myInt);
+clearInterval(yourInt);
 console.log("works");
 }
 
@@ -35,7 +39,7 @@ if(event.target.id == "box3" ){
 if(event.target.id == "box4" ){
   clearInterval(myInt);
 
-var yourInt = setInterval( ()=>{
+ yourInt = setInterval( ()=>{
       const d = new Date();
   const time = d.toLocaleTimeString('en-IT', { hour12: false });
 
