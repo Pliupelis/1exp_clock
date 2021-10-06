@@ -22,7 +22,6 @@ if(event.target.id == "box1"){
            ":" + minute + ":" + seconds;
 console.log(minute);
 };
-//myInt = setInterval(timer, 1000);
 clearInterval(yourInt);
 myInt = setInterval(timer, 1000);
 }
@@ -30,10 +29,51 @@ myInt = setInterval(timer, 1000);
 if(event.target.id == "box2" ){
 clearInterval(myInt);
 clearInterval(yourInt);
-console.log("works");
 }
 
 if(event.target.id == "box3" ){
+  //worldtime
+  var data = [
+    {
+      country: "New York",
+      timeZone: "America/New_York"
+    },
+    {
+      country: "Bangkok",
+      timeZone: "Asia/Bangkok"
+    },
+    {
+      country: "Lithuania",
+      timeZone: "Europe/Vilnius"
+    }
+  ]
+ option = {hour12: false};
+
+  var timeTable = document.getElementById('timeTable');
+
+clock = () =>{
+    timeTable.innerHTML ="";
+    var now = new Date();
+    for(let i=0; i<data.length; i++){
+      option.timeZone=data[i].timeZone;
+  let str=now.toLocaleString('en',option);
+  let splice = str.split(',')
+  let time = splice[1];
+  console.log(time);
+  let country=data[i].country;
+
+  var tr=document.createElement('tr');
+
+  tr.innerHTML=`<td>
+                <h1>${country}</h1><br>
+                </td>
+                <td><p class="time">${time}</p>
+                `
+  timeTable.appendChild(tr);
+    }
+  }
+  clock();
+  setInterval(clock, 30000);
 }
 
 if(event.target.id == "box4" ){
@@ -47,23 +87,6 @@ if(event.target.id == "box4" ){
 
   },1000);
 }
-
-
-
   });
+
 });
-
-/*
-updateTime = () =>{
-  const isButton = event.target.nodeName === 'BUTTON';
-if (!isButton) {
-  return;
-}
-zeroTime ++;
-display.innerHTML = zeroTime;
-};
-
-container.addEventListener('click', ()=>{
-setInterval(updateTime(),1000);
-console.log("asa");
-}); */

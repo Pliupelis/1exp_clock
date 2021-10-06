@@ -73,7 +73,7 @@ font-weight: bolder;
 }
 .container-menu{
 position: relative;
-
+min-height: 200px;
 }
 .container{
 position: absolute;
@@ -99,6 +99,37 @@ max-width: 240px;
   font-size: 15px;
   font-weight: bold;
 }
+.worldtime-wrapper{
+  position: relative;
+    font-family:Cambria;
+    font-weight: bold;
+    width: 100%;
+    margin: 10px auto;
+    color:#000;
+  }
+ p, h1{
+    color: yellow;
+  }
+  h1{font-size: 18px;}
+
+  td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  td:nth-child(even){
+    padding-bottom: 10px;
+  }
+
+
+
+
+    #timeTable{
+    background-color: blue;
+        margin: 20px auto;
+        width: 100%;
+      }
+
 
 @keyframes anim {
 	0%,
