@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(event){
+  //default display
+  yourInt = setInterval( ()=>{
+       const d = new Date();
+   const time = d.toLocaleTimeString('en-IT', { hour12: false });
+
+   display.innerHTML = time;
+
+   },1000);
+
+//action
 const display = document.getElementById('time');
 const container = document.getElementById("btn-wrap");
+const timeTable = document.getElementById('timeTable');
 var zeroTime = 0;
 var myInt;
 var yourInt;
+var ourInt;
+var Count = 0;
 container.addEventListener("click", event => {
-isPaused = false;
 if(event.target.id == "box1"){
   timer = () =>{
   ++zeroTime;
@@ -20,7 +32,6 @@ if(event.target.id == "box1"){
              seconds = "0"+seconds;
            display.innerHTML = hour +
            ":" + minute + ":" + seconds;
-console.log(minute);
 };
 clearInterval(yourInt);
 myInt = setInterval(timer, 1000);
@@ -32,6 +43,8 @@ clearInterval(yourInt);
 }
 
 if(event.target.id == "box3" ){
+  Count += 1;
+      if(Count%2 == 1){
   //worldtime
   var data = [
     {
@@ -45,11 +58,13 @@ if(event.target.id == "box3" ){
     {
       country: "Lithuania",
       timeZone: "Europe/Vilnius"
+    },
+    {
+      country:"Sydney",
+    timeZone:"Australia/Sydney"
     }
   ]
  option = {hour12: false};
-
-  var timeTable = document.getElementById('timeTable');
 
 clock = () =>{
     timeTable.innerHTML ="";
@@ -73,7 +88,14 @@ clock = () =>{
     }
   }
   clock();
-  setInterval(clock, 30000);
+  ourInt = setInterval(clock, 1000);
+  timeTable.style.visibility = "visible";
+  //check for clicks
+
+}else{
+  timeTable.style.visibility = "hidden";
+  clearInterval(ourInt);
+}
 }
 
 if(event.target.id == "box4" ){
